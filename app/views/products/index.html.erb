@@ -1,0 +1,11 @@
+<h1>Productos:</h1>
+
+<!-- @products llama a la variable declarada en el controlador products-->
+<% @products.each do |product| %>
+    <%= link_to product_path(product), class: 'product' do %>
+    <!-- @products.title llama a la variable declarada en el controlador products
+    y nos devuelve la columna title de nuestra tabla products -->
+    <h2><%= product.title %></h2>
+    <h1><%= product.price %></h1>
+    <% end %>
+<% end %>
