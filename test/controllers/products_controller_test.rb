@@ -30,4 +30,18 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         assert_response :success
         assert_select 'form'
   end
+
+  test 'allow to create a new product' do
+    #Esperamos parametros del objeto product
+    # y que tenga un titulo, una descripcion y un precio
+    post products_path, params: {
+      product: {
+        title: 'Nintendo 64',
+        description: 'Le falan los cables',
+        price: 45
+    }
+  }
+    #Esperamos que nos redirija correctamente a la url product_path
+    assert_redirected_to products_path
+end
 end
